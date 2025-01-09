@@ -15,7 +15,7 @@ const Home = () => {
 
   const fetchHotels = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/hotels");
+      const response = await axios.get(`${process.env.BACKEND_URL}/hotels`);
       setHotels(response.data);
     } catch (error) {
       console.log("Error fetching hotels:", error);
@@ -64,7 +64,7 @@ const Home = () => {
             >
               {/* Hotel Image */}
               <img
-                src={`http://localhost:5000/uploads/${hotel.hotelImage}`}
+                src={`${process.env.IMAGE_URL}/${hotel.hotelImage}`}
                 alt={hotel.hotelImage}
                 className="w-full h-48 object-cover"
               />

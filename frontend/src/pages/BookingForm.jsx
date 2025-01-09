@@ -12,7 +12,7 @@ const BookingForm = () => {
   useEffect(() => {
     const fetchHotels = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/hotels");
+        const response = await axios.get(`${process.env.BACKEND_URL}/hotels`);
         setHotels(response.data);
       } catch (error) {
         console.error("Error fetching hotels:", error);
@@ -40,7 +40,7 @@ const BookingForm = () => {
   
     try {
       // Send a POST request to the API to create a booking
-      const response = await axios.post("http://localhost:5000/api/bookings", bookingData);
+      const response = await axios.post(`${process.env.BACKEND_URL}/bookings`, bookingData);
       console.log("Booking submitted:", response.data);
   
       // Clear form
